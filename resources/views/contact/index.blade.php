@@ -38,5 +38,8 @@
     <div>
 
     </div>
-    <a class="btn btn-primary" type="submit" href="{{route('contact_create')}}">Добавить запись</a>
+    <a class="btn btn-primary" type="submit" href="{{ route('contact_create') }}">
+        <i class="fa fa-plus"></i>
+        Добавить запись
+    </a>
 @endsection
