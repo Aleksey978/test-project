@@ -1,0 +1,10 @@
+.table-item {
+    text-decoration: none;
+    color: black;
+}
+
+.img_delete {
+    background: url("/resources/img/delete.png");
+    width: 20px;
+    height: 20px;
+}
