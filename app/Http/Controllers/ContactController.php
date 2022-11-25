@@ -14,11 +14,6 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-//        $category = Category::find(1);
-//        $contacts = Contact::where('category_id', $category->id)->get();
-//        dd($category->contacts);
-
-
         return view('contact.index', compact('contacts'));
     }
 

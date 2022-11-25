@@ -4,14 +4,26 @@
 @endsection
 @section('content')
     <h1>Добавить контакт</h1>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class = "alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
 
     <form action="{{route('contact_update', $contact->id)}}" method="post">
         @csrf
         @method('patch')
-{{--        <div class="form-group">--}}
-{{--            <label for="name">Введите имя</label>--}}
-{{--            <input class="form-control" type="text" name="name" placeholder="Введите имя" id="name" value="{{$contact->name}}">--}}
-{{--        </div>--}}
         <form action="{{route('contact_store')}}" method="post">
             @csrf
             <div class="form-group mb-5">
@@ -30,10 +42,10 @@
                 <label for="phone">Телефон</label>
                 <input class="form-control" type="tel" name="phone" placeholder="Введите телефон" id="phone" value="{{$contact->phone}}">
             </div>
-{{--            <div class="form-group mb-5">--}}
-{{--                <label for="massage">Коментарий</label>--}}
-{{--                <textarea name="massage" id="massage" class="form-control" placeholder="Введите коментарий">{{$contact->name}}</textarea>--}}
-{{--            </div>--}}
+            <div class="form-group mb-5">
+                <label for="massage">Коментарий</label>
+                <textarea name="massage" id="massage" class="form-control" placeholder="Введите коментарий">{{$contact->name}}</textarea>
+            </div>
             <div class="form-group mb-5">
                 <label for="client">Наш клиент</label>
                 <input type="checkbox" name="our_client" placeholder="Введите телефон" id="client">

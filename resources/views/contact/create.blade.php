@@ -1,10 +1,27 @@
 @extends('layouts.app')
+@extends('inc.massages')
 @section('title')
     Добавить контакт
 @endsection
 @section('content')
     <h1>Добавить контакт</h1>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
 
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class = "alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
+    @yield('errors')
     <form action="{{route('contact_store')}}" method="post">
         @csrf
         <div class="form-group mb-5">
@@ -27,12 +44,6 @@
             <label for="massage">Коментарий</label>
             <textarea name="massage" id="massage" class="form-control" placeholder="Введите коментарий"></textarea>
         </div>
-        <label for="massage">Тип клиента</label>
-        <select class="form-select mb-5" name="category_id" aria-label="Default select example">
-            @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->title}}</option>
-            @endforeach
-        </select>
         <button type="submit" class="btn btn-success">Отправить</button>
     </form>
 @endsection

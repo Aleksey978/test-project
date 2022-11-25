@@ -27,7 +27,7 @@
                 <form action="{{route('contact_delete', $contact->id)}}" method="post">
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" type="submit">Удалить</button>
+                    <button class="btn" type="submit"><img style="width: 20px;" src="{{ asset('/img/delete.png') }}" alt=""></button>
                 </form>
                 <a href="{{route('contact_edit', $contact->id)}}" class="btn btn-success">edit</a><td>
 {{--            <td><a class="table-item" href="{{route('contact_show', $contact->id)}}">{{$contact->our_client}}</a></td>--}}
@@ -39,7 +39,6 @@
 
     </div>
     <a class="btn btn-primary" type="submit" href="{{ route('contact_create') }}">
-        <i class="fa fa-plus"></i>
         Добавить запись
     </a>
 @endsection
