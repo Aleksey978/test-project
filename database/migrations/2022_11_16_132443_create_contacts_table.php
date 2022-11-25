@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('massage')->nullable();
 
             $table->unsignedBigInteger('category_id');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
             $table->softDeletes();
         });

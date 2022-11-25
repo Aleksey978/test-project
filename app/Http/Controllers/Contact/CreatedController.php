@@ -11,12 +11,15 @@ class CreatedController extends Controller
 {
     public function __invoke()
     {
-        return view('contact.create');
+        $categories = Category::all();
+        return view('contact.create', [
+            'categories' => $categories
+        ]);
     }
-//
-//    public function __construct()
-//    {
-//        return view('contact.create');
-//    }
+    //
+    //    public function __construct()
+    //    {
+    //        return view('contact.create');
+    //    }
 
 }

@@ -12,6 +12,8 @@
             <th scope="col">Email</th>
             <th scope="col">Телефон</th>
             <th scope="col">Коментарий</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Действия</th>
 {{--            <th scope="col">"Наш клиент"</th>--}}
         </tr>
         </thead>
@@ -23,6 +25,7 @@
             <td>{{$contact->email}}</td>
             <td>{{$contact->phone}}</td>
             <td>{{$contact->massage}}<td>
+            <td>{{$contact->category->title}}<td>
             <td>
                 <form action="{{route('contact_delete', $contact->id)}}" method="post">
                     @csrf

@@ -31,8 +31,8 @@ Route::get('/contact/create', CreatedController::class)->name('contact_create');
 //    Route::get('/contact/create', 'CreatedController')->name('contact_create');
 //});
 
-Route::post('/contact', StoreController::class)->name('contact_store');
-Route::get('/contact/{contact}', ShowController::class)->name('contact_show');
+Route::post('/contact', [StoreController::class, 'index'])->name('contact_store');
+Route::get('/contact/{contact}', [StoreController::class, 'getContact'])->name('contact_show');
 Route::get('/contact/{contact}/edit', EditController::class)->name('contact_edit');
 Route::patch('/contact/{contact}', UpdateController::class)->name('contact_update');
 Route::delete('/contact/{contact}', DestroyController::class)->name('contact_delete');

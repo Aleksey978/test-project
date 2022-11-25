@@ -31,14 +31,15 @@ class StoreRequest extends FormRequest
             'massage' => ''
         ];
     }
-//    public function messages()
-//    {
-//        return [
-//            'name.required'=>'Поле имя является обязательным',
-//            'company.required'=>'Поле Название компании является обязательным',
-//            'email.required'=>'Поле Email является обязательным',
-//            'email.email'=>'Неверный формат Email',
-//
-//        ];
-//    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Поле имя является обязательным',
+            'company.required' => 'Поле Название компании является обязательным',
+            'email.required' => 'Поле Email является обязательным',
+            'email.email' => 'Неверный формат Email',
+
+        ];
+    }
 }

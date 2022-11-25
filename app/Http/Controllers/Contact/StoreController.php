@@ -9,10 +9,15 @@ use App\Models\Contact;
 
 class StoreController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function index(StoreRequest $request)
     {
-        $data = $request->validate();
-        Contact::create($data);
+        // $data = $request->validate();
+        Contact::create($request->all());
         return redirect()->route('contact');
+    }
+
+    public function getContact($id)
+    {
+        dd($id);
     }
 }

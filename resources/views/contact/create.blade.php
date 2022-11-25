@@ -41,6 +41,14 @@
             <input class="form-control" type="tel" name="phone" placeholder="Введите телефон" id="phone">
         </div>
         <div class="form-group mb-5">
+            <label for="category_id">Категория</label>
+            <select class="form-control" name="category_id" id="category_id">
+                @foreach($categories as $v)
+                    <option value="{{$v['id']}}">{{$v['title']}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group mb-5">
             <label for="massage">Коментарий</label>
             <textarea name="massage" id="massage" class="form-control" placeholder="Введите коментарий"></textarea>
         </div>
